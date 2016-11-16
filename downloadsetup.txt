@@ -1,0 +1,22 @@
+服务器nginx支持.apk文件下载的设置
+
+apk 和 .ipa分别是android应用和ios应用的扩展名。
+ 
+如果在浏览器下载这些文件为后缀的文件时，会自动重命名为zip文件。
+ 
+当然可以下载后手动修改后缀，依然可以安装。
+ 
+如果想下载后缀直接就是apk ipa的，可以修改 /usr/local/nginx/conf目录下的mime.types
+ 
+增加如下配置，重启nginx生效
+ 
+application/vnd.android.package-archive apk;
+application/iphone          pxl ipa;
+
+
+==================================================================================
+目前采用的是:
+在mime.type中增加
+text/plain                            plist;
+text/plain                            ipa;
+application/vnd.android.package-archive apk;
